@@ -10,6 +10,8 @@ No matter how they work internally, all streams present the same simple model to
 
 ![Reading information into a program.](https://docs.oracle.com/javase/tutorial/figures/essential/io-ins.gif)
 * Reading information into a program.
+
+
 ![Writing information from a program.](https://docs.oracle.com/javase/tutorial/figures/essential/io-outs.gif)
 * Writing information from a program.
 
