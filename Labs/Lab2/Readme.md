@@ -39,6 +39,7 @@ Chained Exceptions allows to relate one exception with another exception, i.e on
 ## File Handling
 File handling is an important part of any application.
 Java has several methods for creating, reading, updating, and deleting files.
+File Handling in JAVA is achieved through `java.io` package.
 #### General Java File Handling Classes
 * File
 * FileReader
