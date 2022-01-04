@@ -2,51 +2,40 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 class CalcSwingInheritance extends JFrame{
 	int left=10,top=10;
 	final int width = 100,height = 40;
 	public CalcSwingInheritance(){
 		setTitle("Calculator");
 
-		JLabel number1 = createLabel("number1: ");
-		JTextField input_number1 = createTextField();
+		JLabel number1 = (JLabel)createComponent(new JLabel("number1: "),false);
+		JTextField input_number1 = (JTextField)createComponent(new JTextField(),true);
 
-		JLabel number2 = createLabel("number2: ");
-		JTextField input_number2 = createTextField();
+		JLabel number2 = (JLabel)createComponent(new JLabel("number2: "),false);
+		JTextField input_number2 = (JTextField)createComponent(new JTextField(),true);
 
-		JLabel result = createLabel("result: ");
-		JTextField input_result = createTextField();
+		JLabel result = (JLabel)createComponent(new JLabel("result: "),false);
+		JTextField input_result = (JTextField)createComponent(new JTextField(),true);
 
-		JButton add = createButton("ADD");
-		JButton sub = createButton("SUB");
-		JButton mul = createButton("MUL");
-		JButton div = createButton("DIV");
+		JButton add = (JButton)createComponent(new JButton("ADD"),false);
+		JButton sub = (JButton)createComponent(new JButton("SUB"),false);
+		JButton mul = (JButton)createComponent(new JButton("MUL"),false);
+		JButton div = (JButton)createComponent(new JButton("DIV"),false);
 
 		setSize(560,270);
 		setLayout(null);
 		setVisible(true);
 	}
-	private JLabel createLabel(String message){
-		JLabel label = new JLabel(message);
-		label.setBounds(left,top,width,height);
+	private JComponent createComponent(JComponent c,boolean bool){
+		c.setBounds(left,top,width,height);
 		left = left+width+10;
-		add(label);
-		return label;
-	}
-	private JButton createButton(String message){
-		JButton button = new JButton(message);
-		button.setBounds(left,top,width,height);
-		left = left+width+10;
-		add(button);
-		return button;
-	}
-	private JTextField createTextField(){
-		JTextField textfield = new JTextField();
-		textfield.setBounds(left,top,width,height);
-		top = top+height+10;
-		left = 10;
-		add(textfield);
-		return textfield;
+		if(bool){
+			left = 10;
+			top = top+height+10;
+		}
+		add(c);
+		return c;
 	}
 	public static void main(String[] args){
 		new CalcSwingInheritance();

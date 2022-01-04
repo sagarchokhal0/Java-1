@@ -2,50 +2,40 @@ import java.awt.Frame;
 import java.awt.Label;
 import java.awt.TextField;
 import java.awt.Button;
+import java.awt.Component;
 class CalcAWTInheritance extends Frame{
 	int left=10,top=40;
 	final int width = 100,height = 40;
 	public CalcAWTInheritance(){
 		setTitle("Calculator");
-		Label number1 = createLabel("number1: ");
-		TextField input_number1 = createTextField();
 
-		Label number2 = createLabel("number2: ");
-		TextField input_number2 = createTextField();
+		Label number1 = (Label)createComponent(new Label("number1: "),false);
+		TextField input_number1 = (TextField)createComponent(new TextField(),true);
 
-		Label result = createLabel("result: ");
-		TextField input_result = createTextField();
+		Label number2 = (Label)createComponent(new Label("number2: "),false);
+		TextField input_number2 = (TextField)createComponent(new TextField(),true);
 
-		Button add = createButton("ADD");
-		Button sub = createButton("SUB");
-		Button mul = createButton("MUL");
-		Button div = createButton("DIV");
+		Label result = (Label)createComponent(new Label("result: "),false);
+		TextField input_result = (TextField)createComponent(new TextField(),true);
 
-		setSize(280,270);
+		Button add = (Button)createComponent(new Button("ADD"),false);
+		Button sub = (Button)createComponent(new Button("SUB"),false);
+		Button mul = (Button)createComponent(new Button("MUL"),false);
+		Button div = (Button)createComponent(new Button("DIV"),false);
+
+		setSize(560,270);
 		setLayout(null);
 		setVisible(true);
 	}
-	private Label createLabel(String message){
-		Label label = new Label(message);
-		label.setBounds(left,top,width,height);
+	private Component createComponent(Component c,boolean bool){
+		c.setBounds(left,top,width,height);
 		left = left+width+10;
-		add(label);
-		return label;
-	}
-	private Button createButton(String message){
-		Button button = new Button(message);
-		button.setBounds(left,top,width/2,height);
-		left = left+width/2+10;
-		add(button);
-		return button;
-	}
-	private TextField createTextField(){
-		TextField textfield = new TextField();
-		textfield.setBounds(left,top,width,height);
-		top = top+height+10;
-		left = 10;
-		add(textfield);
-		return textfield;
+		if(bool){
+			left = 10;
+			top = top+height+10;
+		}
+		add(c);
+		return c;
 	}
 	public static void main(String[] args){
 		new CalcAWTInheritance();
